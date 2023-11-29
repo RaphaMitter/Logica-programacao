@@ -21,13 +21,35 @@
     document.write("Olá, Mundo!");                              
 </script>
 
-<script>
+<!-- <script>
     window.alert("Olá, Mundo!");
-</script>
+</script> -->
 
 <div id="textoAqui">AQUI É O INNER HTML</div>
 <script>
      document.getElementById("textoAqui").innerHTML = "Olá Inner HTML"
+</script>
+
+<!-- INPUTS PARA O JAVASCRIPT -->
+
+<script>
+    // var nome = prompt("Informe o seu nome:");
+    // console.log("Nome digitado: " + nome);
+</script>
+
+<script>
+    // var confirmacao = confirm("Deseja Continuar?");
+    // console.log("Resposta: " + confirmacao);
+   
+</script>
+
+<input id="campoTexto" type="text" placeholder="Digite algo...">
+<button onclick="obterTexto()">Obter Texto</button>   
+<script>
+    function obterTexto() {
+        var texto = document.getElementById("campoTexto").value;
+        console.log("Texto digitado: " + texto);
+    }
 </script>
 
 </body>
