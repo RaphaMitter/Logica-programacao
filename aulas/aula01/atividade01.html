@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular Média</title>
+
+    <input id="campoNum1" type="number">
+    <input id="campoNum2" type="number">
+    <input id="campoNum3" type="number">
+    <input id="campoNum4" type="number">
+
+    <button onclick="calcularmedia()">Exibir Média</button>
+
+    <script>
+        function calcularmedia() {
+            var number1 = document.getElementById("campoNum1").value;
+            var number2 = document.getElementById("campoNum2").value;
+            var number3 = document.getElementById("campoNum3").value;
+            var number4 = document.getElementById("campoNum4").value;
+            
+            var soma = number1 + number2 + number3 + number4
+
+            console.log("valor digitado: " + soma);
+        }
+
+    </script>
+
+
+
+</head>
+
+<body>
+
+</body>
+
+</html>
