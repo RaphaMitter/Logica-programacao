@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Estrutura de Repetição - While com Prompt de Confirmação</h1>
+
+    <script>
+    let Repeticao = true;
+    
+    while (Repeticao) {
+        let configuracao = confirm("Deseja prosseguir?")
+    
+        Repeticao = !configuracao;
+    }
+    </script>
+    
+    <!-- ou -->
+    
+    <!-- <script>
+        let resposta = true;
+        
+        while(resposta) {
+            resposta = !confirm("Deseja prosseguir?");
+        }
+    
+    </script> -->
+    
+    <!-- ou -->
+    
+    <!-- <script>
+        let resposta = true;
+        
+        do {
+           resposta = !confirm("Deseja prosseguir?");
+        } while (resposta);
+    
+    </script> -->
+    
+    <p><a href="../../index.html">Voltar ao Índice</a></p>
+</body>
+</html>

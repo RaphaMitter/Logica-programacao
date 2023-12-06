@@ -1,41 +1,42 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atividade</title>
+    <title>Atividade - Variáveis e Tipos de Dados</title>
 </head>
-
 <body>
     <h1>Atividade - Variáveis e Tipos de Dados</h1>
 
-    <h2>Declaração e Exibição de Variáveis</h2>
-    <p>Declare três variáveis: uma para armazenar sua idade, outra para seu nome e uma terceira para o valor de pi.</p>
-    <p>Escreva o código HTML para a exibição dos dados em tela e em console, a partir dessas variáveis.</p>
+    <h2>1. Declarando Variáveis</h2>
+    <p>Declare três variáveis: uma para armazenar sua idade, outra para seu nome e uma terceira para armazenar o valor de π (pi).</p>
+    <p>Escreva o código HTML para a exibição desses dados em tela e em console, a partir dessas variáveis.</p>
 
-    <p id="idade">Idade:</p>
-    <p>Nome:</p>
-    <p>Pi:</p>
+    <p id="idade">Idade: </p>   
+    <p id="nome">Nome: </p>
+    <p id="pi">PI: </p>
 
     <script>
-        let idade = 37;
-        let nome = "Raphael";
-        const pi = 3.14;
+        // Declaração e atribuição de variáveis
+        var idade = 28;
+        let nome = "Ana";
+        const pi = 3.14159;
 
-        // exibir em console.log
+        //Exibindo variáveis no console (pode ser removido após a atividade)
         console.log("Idade:", idade);
         console.log("Nome:", nome);
-        console.log("Pi:", pi);
+        console.log("Valor de pi:", pi);
 
-        // escrevendo na tela #1
-        document.getElementById().innerHTML = idade;
-
-        // escrevendo na tela #2
+        //Escrevendo dados na tela #1
         document.write("<p>Idade: " + idade + "</p>");
+        document.write("<p>Nome: " + nome + "</p>");
+        document.write("<p>PI: " + pi + "</p>");
+
+        //Escrevendo dados na tela #2
+        document.getElementById("idade").innerHTML = idade;
+        document.getElementById("nome").innerHTML = nome;
+        document.getElementById("pi").innerHTML = pi;
     </script>
-
-
+    <p><a href="../../index.html">Voltar ao Índice</a></p>
 </body>
-
 </html>
