@@ -17,6 +17,20 @@ Crie a função atacar
     - atacar, recebe como parametro um personaem/inimigo
     - so pode atacar alguém com vida
     - exibe o console.log informando qual a força do ataque e inimigo atacado
+
+Exercício:
+    - Crie um limite de vida máxima para o personagem
+    - Crie uma função de recuperar vida que recebe um total de pontos para recuperar
+    - A recuperação de via não pode fazer o personaem ir além da vida máxima
+
+Parte 3: Crie a herança
+    - Crie as classes Arqueiro, Guerreiro e Mago
+    - Todas as 3 classes herdam de personagem
+
+Alterações do Guerreiro:
+    - Acrescente a propriedade "escudo" na classe Guerreiro.
+    - A função tomarDano do Guerreiro deve proteger seus pontos de vida,
+    abatendo o dano sofrido dos pontos do seu escudo.
 */
 
 class Personagem {
@@ -27,6 +41,7 @@ class Personagem {
         this.posicao = posicao;
         this.vida = vida;
         this.vivo = vivo;
+        this.vidaMaxima = vida;
     }
 
     morrer() {
@@ -56,12 +71,49 @@ class Personagem {
             console.log("Não é possível atacar na condição de morto!");
         }
     }
+
+    recuperarVida(vidaRecebida, personagem = this) {
+        personagem.vida += vidaRecebida;
+
+        if (personagem.vida > personagem.vidaMaxima) {
+            personagem.vida = personagem.vidaMaxima;
+        }
+
+        console.log(`${this.nome} recuperou a vida de ${personagem.nome} um total de ${vidaRecebida}, ficando com ${personagem.vida} de vida`);
+    }
 }
 
-let personagem1 = new Personagem("Arthur", 10, 12, 100, 1, true);
-let personagem2 = new Personagem("Gendalf", 12, 8, 85, 1);
+class Arqueiro extends Personagem {
+    constructor(nome, ataque, defesa, vida, posicao, vivo = true) {
+        super(nome, ataque, defesa, vida, posicao, vivo)
+    }
+}
 
-console.log(personagem1);
-console.log(personagem2);
+class Guerreiro extends Personagem {
+    constructor(nome, ataque, defesa, vida, posicao, vivo = true, escudo) {
+        super(nome, ataque, defesa, vida, posicao, vivo)
+        this.escudo = escudo;
+    }
+
+    tomarDano(quantidade) {
+        console.log(`${this.nome} sofre dano de ${quantidade}, mas defendeu com ${this.escudo} de escudo`);
+        if (quantidade > this.escudo) {
+            quantidade = quantidade - this.escudo;
+        } else {
+            quantidade = 0;
+        }
+        super.tomarDano(quantidade);
+    }
+}
+
+class Mago extends Personagem {
+    constructor(nome, ataque, defesa, vida, posicao, vivo = true) {
+        super(nome, ataque, defesa, vida, posicao, vivo)
+    }
+}
+
+let personagem1 = new Guerreiro("Aragorn", 10, 12, 100, 1, true, 5);
+let personagem2 = new Mago("Gendalf", 12, 8, 85, 1);
 
 console.log(personagem1.atacar(personagem2));
+console.log(personagem2.atacar(personagem1));
