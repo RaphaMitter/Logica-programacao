@@ -11,8 +11,7 @@
     <h1>Aula 05 - Trabalhando com Listas em JavaScript</h1>
 
     <h2>Declaração de Listas</h2>
-    <p>JavaScript oferece a capacidade de trabalhar com listas, uma estrutura que permite armazenar e manipular
-        conjuntos de dados.</p>
+    <p>JavaScript oferece a capacidade de trabalhar com listas, uma estrutura que permite armazenar e manipular conjuntos de dados.</p>
     <pre>
         <code>
             // Declaração e inicialização de uma lista
@@ -76,35 +75,35 @@
             }
             document.write("</ul>");
         </code>
-        
+        <script>
+            // Declaração e inicialização de uma lista
+            let frutas = ['Maçã', 'Banana', 'Uva', 'Goiaba'];
+
+            // Exibindo os elementos da lista
+            document.write("<h3>Frutas:</h3>");
+            document.write("<ul>");
+
+            for (let i = 0; i < frutas.length; i++) {
+                document.write("<li>" + frutas[i] + "</li>");
+            }
+
+            document.write("</ul>");
+
+            // Adicionando um novo elemento à lista
+            frutas.push('Pêra');
+            frutas.unshift('Abacate');
+
+            // Exibindo a lista atualizada
+            document.write("<h3>Frutas Atualizadas:</h3>");
+            document.write("<ul>");
+
+            for (let i = 0; i < frutas.length; i++) {
+                document.write("<li>" + frutas[i] + "</li>");
+            }
+
+            document.write("</ul>");
+        </script>
     </pre>
-    <script>
-        // Declaração e inicialização de uma lista
-        let frutas = ['Maçã', 'Banana', 'Uva', 'Goiaba'];
-
-        // Exibindo os elementos da lista
-        document.write("<h3>Frutas:</h3>");
-        document.write("<ul>");
-
-        for (let i = 0; i < frutas.length; i++) {
-            document.write("<li>" + frutas[i] + "</li>");
-        }
-
-        document.write("</ul>");
-
-        // Adicionando um novo elemento à lista
-        frutas.push('Pêra');
-        frutas.push('Abacate');
-        // Exibindo a lista atualizada
-        document.write("<h3>Frutas Atualizadas:</h3>");
-        document.write("<ul>");
-
-        for (let i = 0; i < frutas.length; i++) {
-            document.write("<li>" + frutas[i] + "</li>");
-        }
-
-        document.write("</ul>");
-    </script>
 
     <h2>Manipulação de Strings como Listas</h2>
     <p>Em JavaScript, é possível tratar strings como listas e realizar diversas operações.</p>
@@ -127,25 +126,25 @@
         <script>
             let texto = "JavaScript";
 
-            // for(let i = texto.length /2; i < texto.length; i++) {
+            // for(let i = texto.length - 1; i >= 0; i--) {
             //     console.log("Caractere na posição " + i + ": " + texto[i]);
             // }
-
-            // for(let i = texto.length -1; i >= 0 ; i--) {
-            //     console.log("Caractere na posição " + i + ": " + texto[i]);
-            // }
-
-            for (let i = texto.length - 1; i >= texto.length / 2; i--) {
-                console.log("Caractere na posição " + i + ": " + texto[i]);
-            }
-
-                                     //texto.length = tamanho do texto
+            
         </script>
 
         <script>
-            let produtos = ["Panela", "Vassoura", "Pá", "Balde"];
-            
+            let produtos = ["lápis", "borracha", "Panela", "Vassoura", "Pá", "Balde"];
+
+            for(let i = 0; i < produtos.length;i++) {
+                console.log("Produto na posição " + i + ": " + produtos[i]);
+            }
+
+            console.log("Priemiro item: ", produtos[0]);
+            console.log("Último item: ", produtos[produtos.length - 1]);
+            console.log("Penúltimo item: ", produtos[produtos.length - 2]);
+
         </script>
+
         <script>
             // let textoArray = texto.split('');
             // let arrayRevertido = textoArray.reverse();
