@@ -8,16 +8,31 @@
 
 #Parte 2:
     - Crie uma função cadastrarVeiculo
+
+ #Exercício:
+    - Adicione ao veículo um anoDeFabricacao
+    - Adicione uma função que retorne se o veículo é isento de IPVA.
+    - Utilize o Date().getFullYear();
+
 */
 class Veiculo {
-    constructor(marca, modelo, preco, cor, autonomia, capacidadeTanque, imagemURL) {
+    constructor(marca, modelo, preco, cor, autonomia, capacidadeTanque, anoFabricacao, imagemURL) {
         this.marca = marca;
         this.modelo = modelo;
         this.preco = preco;
         this.cor = cor;
         this.autonomia = autonomia;
         this.capacidadeTanque = capacidadeTanque;
+        this.anoFabricacao = anoFabricacao;
         this.imagemURL = imagemURL;
+    }
+
+    isencaoIpva() {
+        const data = new Date;
+        const ano = data.getFullYear();
+
+        return ano - this.anoFabricacao >= 20;
+
     }
 
     calcularDistanciaMaxima() {
@@ -25,7 +40,11 @@ class Veiculo {
     }
 
     exibirDetalhes() {
-        return `${this.marca} ${this.modelo} - ${this.cor} - R$ ${this.preco.toFixed(2)}`;
+        if (this.isencaoIpva()) {
+            return `${this.marca} ${this.modelo} - ${this.cor} - R$ ${this.preco.toFixed(2)} ISENTO DE IPVA`;
+        } else {
+            return `${this.marca} ${this.modelo} - ${this.cor} - R$ ${this.preco.toFixed(2)}`;
+        }
     }
 }
 
@@ -40,17 +59,49 @@ function cadastrarVeiculo() {
     const cor = document.getElementById("cor").value;
     const autonomia = parseInt(document.getElementById("autonomia").value);
     const capacidadeTanque = parseInt(document.getElementById("capacidadeTanque").value);
+    const anoFabricacao = parseInt(document.getElementById("anoFabricacao").value);
     const imagemURL = document.getElementById("imagemURL").value;
 
     // Instanciar um novo objeto veículo, passando os valores pedidos no construtor
-    const veiculo = new Veiculo(marca, modelo, preco, cor, autonomia, capacidadeTanque, imagemURL);
+    const veiculo = new Veiculo(marca, modelo, preco, cor, autonomia, capacidadeTanque, anoFabricacao, imagemURL);
 
-    // Adicionar o veiculo a nossa lista "Banco de dados"
+    // Adicionar o veículo a nossa lista "banco de dados"
     veiculos.push(veiculo);
 
-   // Atualiza a exibição
-   console.log(veiculos);
+    // Atualiza a exibição
+    exibirVeiculos()
 
-    // Limpar Formulário
-    document.getElementById("veiculoForm").reset()
+    // Limpar formulário
+    document.getElementById("veiculoForm").reset();
 }
+
+function exibirVeiculos() {
+    const veiculosList = document.getElementById("veiculosList");
+    // Limpar a lista antes de exibir os veículos
+    veiculosList.innerHTML = "";
+
+    for (let i = 0; i < veiculos.length; i++) {
+        const veiculoItem = document.createElement("li");
+        const veiculoCard = criarVeiculoCard(veiculos[i]);
+        veiculosList.appendChild(veiculoCard);
+        veiculosList.appendChild(veiculoItem);
+    }
+}
+
+function criarVeiculoCard(veiculo) {
+    const veiculoCard = document.createElement("div");
+    veiculoCard.className = "veiculo-card";
+
+    const imagemVeiculo = document.createElement("img");
+    imagemVeiculo.src = veiculo.imagemURL;
+    imagemVeiculo.className = "veiculo-imagem";
+    imagemVeiculo.alt = `${veiculo.marca} ${veiculo.modelo}`;
+    veiculoCard.appendChild(imagemVeiculo);
+
+    const detalhesVeiculo = document.createElement("div");
+    detalhesVeiculo.textContent = veiculo.exibirDetalhes() + ` - Distância máxima: ${veiculo.calcularDistanciaMaxima()} km`;
+    veiculoCard.appendChild(detalhesVeiculo);
+
+    return veiculoCard;
+}
+
