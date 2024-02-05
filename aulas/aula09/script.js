@@ -5,7 +5,7 @@ class Conta {
     }
 
     sacar(valor) {
-        if(this.saldo >= valor && valor > 0) {
+        if (this.saldo >= valor && valor > 0) {
             this.saldo - valor;
             return true; //Saque realizado com sucesso
         } else {
@@ -14,7 +14,7 @@ class Conta {
     }
 
     depositar(valor) {
-        if(valor > 0) {
+        if (valor > 0) {
             this.saldo += valor;
             return true; // Deposito realizado com sucesso
         } else {
@@ -36,7 +36,7 @@ class ContaCorrente extends Conta {
     sacar(valor) {
         const valorDisponivelParaSaque = this.saldo + this.limiteChequeEspecial;
 
-        if(valor > 0 && valorDisponivelParaSaque >= valor) {
+        if (valor > 0 && valorDisponivelParaSaque >= valor) {
             this.saldo -= valor;
             return true; // Saque realizado com sucesso
         } else {
