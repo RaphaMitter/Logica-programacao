@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro Contas Bancárias</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
-    <h1>Cdastro de Clientes</h1>
+    <h1>Cadastro de Clientes</h1>
 
     <form id="clienteForm">
         <label for="nomeCliente">Nome do Cliente:</label>
@@ -36,23 +34,21 @@
             <option value="ContaPoupanca">Conta Poupança</option>
         </select>
 
-        <label for="cliente">Selecione o Cliente</label>
+        <label for="cliente">Selecione o Cliente:</label>
         <select id="cliente" required>
-            <!-- Adicione as opções dinamicamente usando JavaScript -->
+            <!-- Adicione as opções dinamicanete usando JavaScript -->
         </select>
 
-        <button type="button" onclick="cadastrarconta()">Cadastrar Conta</button>
+        <button type="button" onclick="cadastrarConta()">Cadastrar Conta</button>
     </form>
 
-    <!-- Exibição de Cadastros -->
-<h2>Clientes Cadastros</h2>
-<ul id="clientesList"></ul>
+    <!--Exibição de Cadastros-->
+    <h2>Clientes Cadastrados</h2>
+    <ul id="clientesList"></ul>
 
-<h2>Conas Bancárias Cadastradas</h2>
-<ul id=""></ul>
-
+    <h2>Contas Bancárias Cadastradas</h2>
+    <ul id="contasList"></ul>
 
     <script src="script.js"></script>
 </body>
-
 </html>
